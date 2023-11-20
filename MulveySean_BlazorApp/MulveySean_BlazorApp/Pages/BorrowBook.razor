@@ -1,0 +1,160 @@
+﻿@page "/borrowBook"
+@using MulveySean_BlazorApp.Data
+@inject State State 
+
+<p hidden="@hideBookID">
+    ID of Book To Borrow
+    <input @bind="bookID" />
+
+
+    <button class="btn btn-primary" @onclick="CheckBookID">Enter</button>
+</p>
+
+<p hidden="@hideUserID">
+    ID of User
+    <input @bind="userID" />
+
+    <button class="btn btn-primary" @onclick="CheckUserID">Borrow Book</button>
+</p>
+
+<button class="btn btn-primary" @onclick="ShowBookList">Show Book List</button>
+<button class="btn btn-primary" @onclick="ShowUserList">Show User List</button>
+<button class="btn btn-primary" @onclick="ShowBorrowedList">Show Borrowed Books</button>
+
+
+
+<p hidden="@hideBookTable">
+    <div class="container">
+        <h3 class="p-3 text-center">Book List</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in books)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Isbn</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</p>
+
+<p hidden="@hideUserTable">
+    <div class="container">
+        <h3 class="p-3 text-center">User List</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in users)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</p>
+
+<p hidden="@hideBorrowed">
+    <div class="container">
+        <h3 class="p-3 text-center">Borrowed Book List</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in borrowedBooks)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Isbn</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</p>
+@code
+{
+    List<Book> borrowedBooks = new List<Book>();
+    List<Book> books = new List<Book>();
+    List<User> users = new List<User>();
+
+    bool hideBookTable = true;
+    bool hideUserTable = true;
+    bool hideBookID = false;
+    bool hideUserID = true;
+    bool hideBorrowed = true;
+    int? bookID;
+    int? userID;
+
+    void CheckBookID()
+    {
+        books = State.bookList;
+        users = State.userList;
+        foreach (Book book in books)
+        {
+            if (bookID == book.Id)
+            {
+                hideUserID = false;
+            }
+        }
+    }
+    void CheckUserID()
+    {
+        foreach (User user in users)
+        {
+            if (userID == user.Id)
+            {
+                Book book = books.FirstOrDefault(u => u.Id == bookID);
+                borrowedBooks.Add(new Book { Id = book.Id, Title = book.Title, Author = book.Author, Isbn = book.Isbn });
+                State.borrowedList = borrowedBooks;
+                State.bookList.Remove(book);
+            }
+        }
+    }
+    void ShowBookList()
+    {
+        books = State.bookList;
+        hideBookTable = false;
+    }
+
+    void ShowUserList()
+    {
+        users = State.userList;
+        hideUserTable = false;
+    }
+    void ShowBorrowedList()
+    {
+        hideBorrowed = false;
+    }
+}

@@ -1,0 +1,72 @@
+﻿@page "/returnBook"
+@using MulveySean_BlazorApp.Data
+@inject State State
+
+<h1>Return Book</h1>
+
+<p>Enter ID of Book</p>
+<input @bind="bookID" />
+<button class="btn btn-primary" @onclick="Return">Return</button>
+<button class="btn btn-primary" @onclick="ShowBorrowed">Show Borrowed Books</button>
+<p hidden="@hideBorrowed">
+    <div class="container">
+        <h3 class="p-3 text-center">Book List</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in books)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Isbn</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</p>
+
+@code
+{
+
+    List<Book> books = new List<Book>();
+
+    int? bookID;
+    bool hideBorrowed = true;
+
+    void Return()
+    {
+        books = State.borrowedList;
+        foreach (Book currBook in State.borrowedList)
+        {
+
+            if (bookID == currBook.Id)
+            {
+                Book book = books.FirstOrDefault(u => u.Id == bookID);
+                State.bookList.Add(new Book { Id = book.Id, Title = book.Title, Author = book.Author, Isbn = book.Isbn });
+                State.borrowedList = books;
+                State.bookList.Remove(book);
+                books.Remove(book);
+
+            }
+        }
+
+
+    }
+    void ShowBorrowed()
+    {
+        books = State.borrowedList;
+        hideBorrowed = false;
+    }
+}
+    
+}

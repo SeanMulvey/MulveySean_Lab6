@@ -1,0 +1,77 @@
+﻿@page "/"
+@using MulveySean_BlazorApp.Data
+@inject NavigationManager NavigationManager
+@inject State State
+
+
+<PageTitle>Index</PageTitle>
+<div>
+    <h1>Hello, world!</h1>
+
+
+
+    <button class="btn btn-primary" @onclick="ManageBooks">Manage Books</button>
+    <button class="btn btn-primary" @onclick="ManageUsers">Manage Users</button>
+    <button class="btn btn-primary" @onclick="BorrowBook">Borrow Book</button>
+    <button class="btn btn-primary" @onclick="ReturnBook">Return Book</button>
+    <button class="btn btn-primary" @onclick="ListBorrowedBooks">List Borrowed Books</button>
+
+</div>
+
+<p hidden="@hideBorrowed">
+    <div class="container">
+        <h3 class="p-3 text-center">Borrowed Book List</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in borrowedList)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Isbn</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</p>
+
+
+@code
+{
+    bool hideBorrowed = true;
+    List<Book> borrowedList = new List<Book>();
+
+
+
+    public void ManageBooks()
+    {
+        NavigationManager.NavigateTo("/manageBooks");
+    }
+    public void ManageUsers()
+    {
+        NavigationManager.NavigateTo("/manageUsers");
+    }
+    public void BorrowBook()
+    {
+        NavigationManager.NavigateTo("/borrowBook");
+    }
+    public void ReturnBook()
+    {
+        NavigationManager.NavigateTo("/returnBook");
+    }
+    public void ListBorrowedBooks()
+    {
+        borrowedList = State.borrowedList;
+        hideBorrowed = false;
+    }
+}

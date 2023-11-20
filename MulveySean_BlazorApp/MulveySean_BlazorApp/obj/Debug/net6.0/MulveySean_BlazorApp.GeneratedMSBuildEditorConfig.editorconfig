@@ -1,0 +1,85 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MulveySean_BlazorApp
+build_property.RootNamespace = MulveySean_BlazorApp
+build_property.ProjectDir = /Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/AddBook.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRkQm9vay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/BorrowBook.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9ycm93Qm9vay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/ListBorrowedBooks.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlzdEJvcnJvd2VkQm9va3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/ManageBooks.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFuYWdlQm9va3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/ManageUsers.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFuYWdlVXNlcnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/ReturnBook.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmV0dXJuQm9vay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-o9975hnntf
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-6mfli3ohsa
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sean/Desktop/School/Fall 2024/Server Side Web Programming/MulveySean_BlazorApp/MulveySean_BlazorApp/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,181 @@
+﻿@page "/manageUsers"
+
+@using MulveySean_BlazorApp.Data
+@inject State State 
+
+<PageTitle>Manage Users</PageTitle>
+<h1>Manage Users</h1>
+
+
+<p>
+    <h1>Username</h1>
+    <input @bind="username" />
+</p>
+
+<p>
+    <h1>Email</h1>
+    <input @bind="email" />
+</p>
+
+
+
+
+
+
+<button class="btn btn-primary" @onclick="AddUser">Add User</button>
+<button class="btn btn-primary" @onclick="EditUser">Edit User</button>
+<button class="btn btn-primary" @onclick="DeleteUser">Delete User</button>
+<button class="btn btn-primary" @onclick="ListUsers">List Users</button>
+
+<p role="status">@updated</p>
+
+
+<p hidden="@hideDelete">
+    <div class="container">
+        <p>Enter User ID</p>
+
+        <input @bind="deleteId" />
+        <button class="btn btn-primary" @onclick="ConfirmDelete">Delete User</button>
+    </div>
+</p>
+
+<p hidden="@hideEdit">
+    <div class="container">
+        <p>Enter User ID</p>
+        <input @bind="editId" />
+        <button class="btn btn-primary" @onclick="ConfirmEdit">Edit User</button>
+
+
+
+
+    </div>
+</p>
+<p hidden="@hideUpdate">
+    <div class="container">
+
+        <input @bind="username" />
+        <input @bind="email" />
+        
+        <button class="btn btn-primary" @onclick="Update">Update User</button>
+    </div>
+</p>
+
+<p hidden="@hideUserTable">
+    <div class="container">
+        <h3 class="p-3 text-center">User List</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in users)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</p>
+
+
+
+@code{
+
+    List<User> users = new List<User>();
+    string username;
+    string email;
+    string currUser;
+    string updated;
+    int? deleteId;
+    int? editId;
+    bool hideDelete = true;
+    bool hideUserTable = true;
+    bool hideEdit = true;
+    bool hideUpdate = true;
+    int currentCount = 0;
+
+    void AddUser()
+    {
+        int prevCount = users.Count;
+        int? id = users.Any() ? users.Max(b => b.Id) + 1 : 1;
+        users.Add(new User { Id = id, Username = username, Email = email});
+        State.userList = users;
+        int currCount = users.Count;
+        if (currCount > prevCount)
+        {
+            updated = "User Added";
+        }
+
+
+    }
+    void EditUser()
+    {
+        hideEdit = false;
+    }
+    void ConfirmEdit()
+    {
+        foreach (User user in users)
+        {
+            if (user.Id == editId)
+            {
+                username = user.Username;
+                email = user.Email;
+
+
+                hideEdit = true;
+                hideUpdate = false;
+
+            }
+        }
+    }
+    void Update()
+    {
+        User user = users.FirstOrDefault(u => u.Id == editId);
+        users.Remove(user);
+        users.Add(new User { Id = editId, Username = username, Email = email});
+        State.userList = users;
+    }
+    void DeleteUser()
+    {
+        hideDelete = false;
+    }
+    void ConfirmDelete()
+    {
+        foreach (User user in users.ToList())
+        {
+            if (user.Id == deleteId)
+            {
+
+                try
+                {
+                    User currUser = users.FirstOrDefault(u => u.Id == editId);
+                    users.Remove(currUser);
+                    State.userList = users;
+                    hideDelete = true;
+                }
+                catch (Exception e)
+                {
+
+                }
+
+
+            }
+        }
+    }
+    void ListUsers()
+    {
+
+        hideUserTable = false;
+    }
+
+}

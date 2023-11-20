@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/MulveySean_BlazorApp.props" />
+</Project>
